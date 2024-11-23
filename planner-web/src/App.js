@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage"; // Importe a página de registro
-
+import PlannerPage from "./Pages/PlannerPage/PlannerPage";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -20,13 +20,11 @@ function App() {
         {/* Rota para Registro */}
         <Route path="/register" element={<RegisterPage />} />
 
-        {/* Rota para Home protegida */}
-        <Route
-          path="/home"
-          element={
-            isAuthenticated ? <HomePage /> : <Navigate to="/login" replace />
-          }
-        />
+        {/* Planner Diário */}
+        <Route path="/dailyplanner" element={<PlannerPage />} />
+
+        {/* Home */}
+        <Route path="/home" element={<HomePage />} />
 
         {/* Redirecionar rotas desconhecidas para Login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
